@@ -1,5 +1,4 @@
 import os
-import math
 
 def main():
     # Get current dir and append file name, so that the script can be run anywhere as long as the input file is in the
@@ -24,7 +23,7 @@ def main():
 
     # Loop through each value in list and for the value, divide by three, round down, and subtract 2 to get the fuel req
     for var in module_mass_int:
-        fuel_req.append(int((math.floor(var / 3) - 2)))
+        fuel_req.append(int(var // 3) - 2)
 
     # Print the total sum of the fuel_req list
     print("Fuel needed for module mass:",sum(fuel_req))
@@ -52,7 +51,7 @@ def main():
 def get_extra_fuel_mass(fuel_mass):
     extra_fuel = 0
     while fuel_mass > 0:
-        fuel = math.floor(fuel_mass / 3) - 2
+        fuel = fuel_mass // 3 - 2
         fuel_mass = fuel
         if fuel > 0:
             extra_fuel += fuel
