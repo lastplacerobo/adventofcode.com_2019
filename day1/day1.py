@@ -41,13 +41,12 @@ def main():
     # Print the total fuel needed
     print("Total fuel needed:",(sum(fuel_req)+extra_fuel))
 
-# Calculate fuel for the fuel mass. Divide by three, round down, and subtract 2 to get the fuel req for the fuel mass.
-# Do so until you reach zero or negative. Function takes argument and calculates the extra fuel needed for that fuel
-# mass. As long as fuel_mass is above 0 we will take fuel_mass and calculate the needed fuel for that mass. We will
-# overwrite the current fuel_mass with the new fuel to be able to calculate the fuel for the new fuel mass. As long
-# as fuel (the new fuel mass) is above 0 we will add it to the variable extra_fuel. When the condition is done
-# extra_fuel will hold all the fuel needed for the extra fuel mass. When we reach 0 in fuel mass we know that
-# we have calculated fuel for its own mass
+# Calculate extra fuel for the fuel mass. Divide by three, round down, and subtract 2.
+# Do so until you reach zero or negative for each fuel mass index.
+# Function takes argument and calculates the extra fuel needed for that fuel mass.
+# As long as fuel_mass is above 0 we will take fuel_mass and calculate the needed fuel for that mass. We will
+# overwrite the current fuel_mass with the new fuel to be able to calculate the fuel for the new fuel mass.
+# When the condition is done extra_fuel will hold all the fuel needed for the extra fuel mass.
 def get_extra_fuel_mass(fuel_mass):
     extra_fuel = 0
     while fuel_mass > 0:
@@ -58,5 +57,6 @@ def get_extra_fuel_mass(fuel_mass):
 
     return extra_fuel
 
+# Only run main if executed directly
 if __name__ == "__main__":
     main()
