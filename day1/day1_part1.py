@@ -1,5 +1,6 @@
 import os
 
+
 def main():
     # Get current dir and append file name, so that the script can be run anywhere as long as the input file is in the
     # same dir
@@ -26,7 +27,8 @@ def main():
         fuel_req.append(int(var // 3) - 2)
 
     # Print the total sum of the fuel_req list
-    print("Fuel needed for module mass:",sum(fuel_req))
+    print("Fuel needed for module mass:", sum(fuel_req))
+
 
 # Only run main if executed directly
 if __name__ == "__main__":

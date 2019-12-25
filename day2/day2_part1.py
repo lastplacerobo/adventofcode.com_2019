@@ -22,7 +22,7 @@ def main():
     intcode_list[2] = 2
 
     # Loop through the list with step 4 to get the opcode
-    for i in range(0,len(intcode_list),4):
+    for i in range(0, len(intcode_list), 4):
 
         # Opcode 1 adds together numbers read from two positions and stores the result in a third position.
         # The three integers immediately after the opcode tell you these three positions - the first two
@@ -30,7 +30,7 @@ def main():
         # the position at which the output should be stored.
         if intcode_list[i] == 1:
 
-            intcode_list[intcode_list[i+3]] = intcode_list[intcode_list[i+1]] + intcode_list[intcode_list[i+2]]
+            intcode_list[intcode_list[i + 3]] = intcode_list[intcode_list[i + 1]] + intcode_list[intcode_list[i + 2]]
 
         # Opcode 2 works exactly like opcode 1, except it multiplies the two inputs instead of adding them.
         # Again, the three integers after the opcode indicate where the inputs and outputs are, not their values.
@@ -44,11 +44,8 @@ def main():
         else:
             raise Exception('Opcode should be 1/2/99. The Opcode value was:{}'.format(intcode_list[i]))
 
-
     # The value that is left at position 0 after the program halts
     print(intcode_list[0])
-
-
 
 
 # Only run main if executed directly

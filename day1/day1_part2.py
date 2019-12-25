@@ -1,5 +1,6 @@
 import os
 
+
 def main():
     # Get current dir and append file name, so that the script can be run anywhere as long as the input file is in the
     # same dir
@@ -26,7 +27,7 @@ def main():
         fuel_req.append(int(var // 3) - 2)
 
     # Print the total sum of the fuel_req list
-    print("Fuel needed for module mass:",sum(fuel_req))
+    print("Fuel needed for module mass:", sum(fuel_req))
 
     # Create a variable for ints that holds the total extra fuel requirement for the fuel mass
     extra_fuel = 0
@@ -36,10 +37,11 @@ def main():
         extra_fuel += get_extra_fuel_mass(var)
 
     # Print the total sum of the extra_fuel req
-    print("Fuel needed for fuel mass:",extra_fuel)
+    print("Fuel needed for fuel mass:", extra_fuel)
 
     # Print the total fuel needed
-    print("Total fuel needed:",(sum(fuel_req)+extra_fuel))
+    print("Total fuel needed:", (sum(fuel_req) + extra_fuel))
+
 
 # Calculate extra fuel for the fuel mass. Divide by three, round down, and subtract 2.
 # Do so until you reach zero or negative for each fuel mass index.
@@ -56,6 +58,7 @@ def get_extra_fuel_mass(fuel_mass):
             extra_fuel += fuel
 
     return extra_fuel
+
 
 # Only run main if executed directly
 if __name__ == "__main__":

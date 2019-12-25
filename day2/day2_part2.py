@@ -39,9 +39,8 @@ def main():
             # Make a shallow copy of the original list to work with
             mutable_intcodes = intcodes.copy()
 
-
             # Loop through the list with step 4 to get the opcode
-            for i in range(0,len(mutable_intcodes),4):
+            for i in range(0, len(mutable_intcodes), 4):
 
                 mutable_intcodes[1] = noun
                 mutable_intcodes[2] = verb
@@ -74,11 +73,8 @@ def main():
 
             # If we find our value print it and exit
             if mutable_intcodes[0] == 19690720:
-                print(100*noun+verb)
+                print(100 * noun + verb)
                 exit()
-
-
-
 
 
 # Only run main if executed directly
