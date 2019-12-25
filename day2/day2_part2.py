@@ -69,7 +69,7 @@ def main():
                     break
 
                 else:
-                    raise Exception('Opcode should be 1/2/99. The Opcode value was:{}'.format(intcodes[i]))
+                    raise Exception('Opcode should be 1/2/99. The Opcode value was:{}'.format(opcode))
 
             # If we find our value print it and exit
             if mutable_intcodes[0] == 19690720:
