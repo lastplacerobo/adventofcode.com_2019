@@ -42,7 +42,7 @@ def main():
             break
 
         else:
-            raise Exception('Opcode should be 1/2/99. The Opcode valie was:{}'.format(intcode_list[i]))
+            raise Exception('Opcode should be 1/2/99. The Opcode value was:{}'.format(intcode_list[i]))
 
 
     # The value that is left at position 0 after the program halts
