@@ -1,4 +1,5 @@
 import os
+import numpy
 
 # Returns the directory in which the code file is stored
 # Returns the absolute path, but does NOT resolve symlinks in its argument
@@ -37,8 +38,16 @@ def main():
         wire_path1[-1] = wire_path1[-1].strip()
         wire_path2[-1] = wire_path2[-1].strip()
 
+        # With numpy create 2D array
+        grid1 = numpy.zeros((10000, 10000))
+        grid2 = numpy.zeros((10000, 10000))
 
-        print(wire_path2)
+        movement = {
+            'R': [1, 0],
+            'L': [-1, 0],
+            'U': [0, 1],
+            'D': [0, -1]
+        }
 
 
 if __name__ == "__main__":
