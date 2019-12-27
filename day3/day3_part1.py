@@ -38,16 +38,52 @@ def main():
         wire_path1[-1] = wire_path1[-1].strip()
         wire_path2[-1] = wire_path2[-1].strip()
 
-        # With numpy create 2D array
-        grid1 = numpy.zeros((10000, 10000))
-        grid2 = numpy.zeros((10000, 10000))
+        grid_run(wire_path1)
 
-        movement = {
-            'R': [1, 0],
-            'L': [-1, 0],
-            'U': [0, 1],
-            'D': [0, -1]
-        }
+        #print("\n")
+        #print(grid_run(wire_path2))
+
+
+def grid_run(route):
+
+    # Dictionary for the final route_path
+    route_path = {}
+
+    # Variables for
+    x_axis, y_axis, count = 0, 0, 0
+
+    # With numpy create 2D array
+    grid1 = numpy.zeros((10000, 10000))
+    grid2 = numpy.zeros((10000, 10000))
+
+    # Movement in the X and Y axis
+    movement = {
+        'R': [1, 0],
+        'L': [-1, 0],
+        'U': [0, 1],
+        'D': [0, -1]
+    }
+
+    # Iterate trough each route element, ie "R990" and onwards, so we work us trough the whole route from wire_path
+    for element in route:
+
+        # Iterate trough the specific routes each step in the grid, from zero to end, for R990 becomes 0-989.
+        # By making an int of the element(R990), from 1 to end (string slicing). So R990 becomes "990" int by starting
+        # after the letter in the element.
+        # Taking the int and making a range of it, iterate trough this range
+        for i in range((int(element[1:]))):
+
+            # In this loop, we will track the steps for this specific route element
+            #
+
+            offset = movement[element[0]]
+            x_axis += offset[0]
+            y_axis += offset[1]
+            count += 1
+
+            route_path[(x_axis, y_axis)] = count
+
+    return route_path
 
 
 if __name__ == "__main__":
