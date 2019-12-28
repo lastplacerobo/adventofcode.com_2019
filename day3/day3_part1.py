@@ -100,7 +100,7 @@ def grid_run(route):
 
 def distance_to_collision(route1, route2):
 
-    # Find the Manhattan distance from the central port (0, 0) to the closest intersection(collision)?
+    # Find the Manhattan distance from the central port (0, 0) to the closest intersection(collision)
     # Manhattan distance = The sum of the horizontal and vertical distances between points on a grid
 
 # Tried with a list, but to slow
@@ -135,11 +135,12 @@ def distance_to_collision(route1, route2):
 
         #print("Manhattan distance:",abs(i[0])+abs(i[1]))
 
+        # Add the sum of the x and y value, abs removes negative values
         manhattan_distance.append(abs(i[0])+abs(i[1]))
 
-    # manhattan_distance list contains the sum of the coordinates. Taking the function min() to find the lowest
-    # value int the list and print it. The output is the sum of x and y coordinates for the crossing of the wires
-    # closest to x=0 and y=0
+    # manhattan_distance list contains the sum of each of the x,y coordinates for each collision.
+    # Taking the function min() to find the lowest value int the list and prints it.
+    # The output is the sum of x and y coordinates for the crossing of the wires closest to x=0 and y=0
     print(min(manhattan_distance))
 
 
