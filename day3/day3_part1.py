@@ -90,12 +90,18 @@ def grid_run(route):
             # Last element in route_path list will have the final grid coordinate for the wire
             #route_path.append((x_axis, y_axis))
 
+            # In route path sets append tuple of x and y coordinates for each step so we can track each single step
+            # that the wire takes in the grid. So for R990, first element is 1,0 next 2,0 next 3,0 and so on
+            # Last element in route_path list will have the final grid coordinate for the wire
             route_path.add((x_axis,y_axis))
 
-    # Return the whole list with every single coordinate that the wire has taken
+    # Return the whole set with every single coordinate that the wire has taken
     return route_path
 
 def distance_to_collision(route1, route2):
+
+    # Find the Manhattan distance from the central port (0, 0) to the closest intersection(collision)?
+    # Manhattan distance = The sum of the horizontal and vertical distances between points on a grid
 
 # Tried with a list, but to slow
 #    for i, r_i in enumerate(route1):
@@ -105,10 +111,37 @@ def distance_to_collision(route1, route2):
 #            if r_i == r_j:
 #                print("collision")
 
+    # Compare the two sets, since the elements are hashed we can compare them. The ones that are identical are the
+    # the same grid coordinates. Save as list so we have indexes to reference
+    collisions = list(route1 & route2)
 
-    collisions = route1 & route2
+    # The wires routes starts at x=0 and y=0 (0, 0). The grid coordinates where collisions has happened can both be
+    # positive or negative (-5, 5).
+    # Calculate distance from 0,0 to list value and store the Manhattan distance
 
-    print(len(collisions))
+    # No idea whats going on here
+    #for i in range((len(collisions)-1)):
+    #    x = collisions[i][0] + collisions[i+1][0]
+    #    y = collisions[i][1] + collisions[i+1][1]
+    #    print((collisions[i]),"+",(collisions[i+1]),"=",(x+y))
+
+    # Go trough the collisions list elements of all x and y coordinates that the wires has crossed each other.
+    # Convert negative numbers with abs to positive so we calculate the sum of coordinates, (-1, 5) becomes 1 + 5 = 6
+    # So Manhattan distance from 0,0 to (-1,5) becomes 6. Save in a list.
+
+    manhattan_distance = []
+
+    for i in collisions:
+
+        #print("Manhattan distance:",abs(i[0])+abs(i[1]))
+
+        manhattan_distance.append(abs(i[0])+abs(i[1]))
+
+    # manhattan_distance list contains the sum of the coordinates. Taking the function min() to find the lowest
+    # value int the list and print it. The output is the sum of x and y coordinates for the crossing of the wires
+    # closest to x=0 and y=0
+    print(min(manhattan_distance))
+
 
 
 
