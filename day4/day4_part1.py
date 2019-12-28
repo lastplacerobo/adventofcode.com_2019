@@ -13,5 +13,24 @@
 
 # How many different passwords within the range given in your puzzle input meet these criteria?
 
-for i in range(146810,612564):
-    print(i)
+
+pass_range = list(range(146810,612564))
+
+mega_list = []
+
+for i in pass_range:
+
+    invid_pass_range = []
+
+    for str_digit in str(i):
+        invid_pass_range.append(int(str_digit))
+
+    mega_list.append(tuple(invid_pass_range))
+
+print(mega_list[0][0])
+
+#print(type(pass_range))
+
+#print(pass_range[-1])
+    #genererea alla nummer, stryk sedan en punkt i taget
+    # ta då bort de som ej följer regler
