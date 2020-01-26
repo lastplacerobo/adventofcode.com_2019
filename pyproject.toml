@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "adventofcode.com_2019"
 version = "0.1.0"
-description = ""
+description = "."
 authors = ["Lastplacerobo"]
 
 [tool.poetry.dependencies]
