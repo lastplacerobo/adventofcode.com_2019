@@ -9,8 +9,8 @@ def main():
     # Open the file in read only
     module_mass_file = open(file_path, 'r')
 
-    # Read line by line into a list
-    module_mass = (module_mass_file.readlines())
+    # Read line by line into a list, readlines return a list
+    module_mass = module_mass_file.readlines()
 
     # Create a list for ints
     module_mass_int = []
